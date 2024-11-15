@@ -1,20 +1,29 @@
-import Carousel from "./components/Carousel/Carousel";
-import CarouselIndicator from "./components/Carousel/CarouselIndicator";
-import CarouselItem from "./components/Carousel/CarouselItem";
-import CarouselItemList from "./components/Carousel/CarouselItemList";
-import CarouselNavigator from "./components/Carousel/CarouselNavigator";
+import { Tabs, Carousel } from "./components";
 
 function App() {
+  const handleChangeTabs = (tabIndex: number) => {
+    console.log(tabIndex);
+  };
   return (
     <>
+      {/* <Tabs onChangeTab={handleChangeTabs} defaultTabIndex={1}>
+        <Tabs.MenuList>
+          <Tabs.Menu>1</Tabs.Menu>
+          <Tabs.Menu>2</Tabs.Menu>
+          <Tabs.Menu>3</Tabs.Menu>
+        </Tabs.MenuList>
+        <Tabs.Pannel>content-1</Tabs.Pannel>
+        <Tabs.Pannel>content-2</Tabs.Pannel>
+        <Tabs.Pannel>content-3</Tabs.Pannel>
+      </Tabs> */}
       <Carousel totalItemCount={3}>
-        <CarouselItemList>
-          <CarouselItem index={1}>item1</CarouselItem>
-          <CarouselItem index={2}>item2</CarouselItem>
-          <CarouselItem index={3}>item3</CarouselItem>
-        </CarouselItemList>
-        <CarouselNavigator />
-        <CarouselIndicator />
+        <Carousel.ItemList>
+          <Carousel.Item>1</Carousel.Item>
+          <Carousel.Item>2</Carousel.Item>
+          <Carousel.Item>3</Carousel.Item>
+        </Carousel.ItemList>
+        <Carousel.Navigator />
+        <Carousel.Indicator />
       </Carousel>
     </>
   );

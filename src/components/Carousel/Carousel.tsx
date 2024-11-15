@@ -1,7 +1,25 @@
-import { createContext, FC, PropsWithChildren } from "react";
+import {
+  Children,
+  cloneElement,
+  createContext,
+  FC,
+  PropsWithChildren,
+  ReactElement,
+  useMemo,
+} from "react";
 import useCarousel from "../../hooks/useCarousel";
+import CarouselItemList from "./CarouselItemList";
+import CarouselItem from "./CarouselItem";
+import CarouselNavigator from "./CarouselNavigator";
+import CarouselIndicator from "./CarouselIndicator";
 interface CarouselProps extends PropsWithChildren {
   totalItemCount: number;
+}
+interface CarouselCompundProps {
+  ItemList: typeof CarouselItemList;
+  Item: typeof CarouselItem;
+  Navigator: typeof CarouselNavigator;
+  Indicator: typeof CarouselIndicator;
 }
 interface CarouselContextProps {
   currentIndex: number;
@@ -16,7 +34,10 @@ export const CarouselContext = createContext<CarouselContextProps>({
   totalItemCount: 0,
 });
 
-const Carousel: FC<CarouselProps> = ({ children, totalItemCount }) => {
+const Carousel: FC<CarouselProps> & CarouselCompundProps = ({
+  children,
+  totalItemCount,
+}) => {
   const { currentIndex, handleClickNavigator, handleClickIndicator } =
     useCarousel({ totalItemCount });
   const CarouselContextValue = {
@@ -26,11 +47,43 @@ const Carousel: FC<CarouselProps> = ({ children, totalItemCount }) => {
     totalItemCount,
   };
 
+  const _children = useMemo(
+    () => Children.toArray(children) as ReactElement[],
+    [children]
+  );
+
+  const carouselItemList = useMemo(
+    () =>
+      (
+        _children.find((child) => child.type === CarouselItemList)?.props
+          .children as ReactElement[]
+      ).map((element, index) =>
+        cloneElement(element, { key: index, index: index + 1 })
+      ),
+    [_children]
+  );
+
+  const carouselNavigator = useMemo(
+    () => _children.find((child) => child.type === CarouselNavigator),
+    [_children]
+  );
+  const carouselIndicator = useMemo(
+    () => _children.find((child) => child.type === CarouselIndicator),
+    [_children]
+  );
+
   return (
     <CarouselContext.Provider value={CarouselContextValue}>
-      {children}
+      {carouselItemList}
+      {carouselNavigator}
+      {carouselIndicator}
     </CarouselContext.Provider>
   );
 };
+
+Carousel.ItemList = CarouselItemList;
+Carousel.Item = CarouselItem;
+Carousel.Navigator = CarouselNavigator;
+Carousel.Indicator = CarouselIndicator;
 
 export default Carousel;

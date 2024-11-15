@@ -2,7 +2,7 @@ import { FC, PropsWithChildren, useContext } from "react";
 import { CarouselContext } from "./Carousel";
 
 interface CarouselItemProps extends PropsWithChildren {
-  index: number;
+  index?: number;
 }
 const CarouselItem: FC<CarouselItemProps> = ({ children, index }) => {
   const { currentIndex } = useContext(CarouselContext);

@@ -1,16 +1,28 @@
-import { useContext } from "react";
+import { FC, useContext } from "react";
 import { CarouselContext } from "./Carousel";
 
-const CarouselIndicator = () => {
+interface CarouselIndicatorProps {
+  children?: (
+    indicatorItem: number[],
+    callback: (index: number) => void
+  ) => JSX.Element;
+}
+const CarouselIndicator: FC<CarouselIndicatorProps> = ({ children }) => {
   const { totalItemCount, handleClickIndicator } = useContext(CarouselContext);
-  return (
+  const indicatorItem = Array.from(
+    { length: totalItemCount },
+    (_, index) => index + 1
+  );
+  return children ? (
+    children(indicatorItem, handleClickIndicator)
+  ) : (
     <>
       {Array.from({ length: totalItemCount }, (_, index) => {
         return index + 1;
       }).map((key) => (
         <button
           onClick={() => handleClickIndicator(key)}
-          key={key}
+          key={`indicator-item-${key}`}
           style={{
             width: "10px",
             height: "10px",

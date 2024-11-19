@@ -1,7 +1,36 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import dts from "vite-plugin-dts";
+import react from "@vitejs/plugin-react";
+// import path from "path";
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
-})
+  plugins: [
+    react(),
+    dts({
+      insertTypesEntry: true,
+      tsconfigPath: "./tsconfig.node.json",
+      rollupTypes: true,
+    }),
+  ],
+  build: {
+    lib: {
+      // entry: path.resolve(__dirname, "src/components/index.ts"),
+      entry: "./src/components/index.ts",
+      name: "index",
+      formats: ["es", "cjs"],
+      fileName: "index",
+    },
+    rollupOptions: {
+      external: ["react", "react-dom"],
+      output: {
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+        },
+      },
+    },
+    commonjsOptions: {
+      esmExternals: ["react"],
+    },
+  },
+});

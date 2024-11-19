@@ -18,7 +18,6 @@ const useCarousel = ({ totalItemCount }: UseCarouselProps) => {
     setCurrentIndex(nextIndex);
   };
   const handleClickIndicator = (index: number) => setCurrentIndex(index);
-  console.log(currentIndex);
   return {
     currentIndex,
     handleClickNavigator,

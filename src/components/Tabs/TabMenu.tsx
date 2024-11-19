@@ -1,5 +1,5 @@
 import { FC, PropsWithChildren, useContext } from "react";
-import { TabContext } from "./Tabs";
+import { TabContext } from ".";
 
 interface TabMenuProps extends PropsWithChildren {
   index?: number;

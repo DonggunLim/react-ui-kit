@@ -1,2 +1,2 @@
-export * from "./Tabs";
-export * from "./Carousel";
+export { default as Tabs } from "./Tabs";
+export { default as Carousel } from "./Carousel";

@@ -1,5 +1,5 @@
 import { FC, useContext } from "react";
-import { CarouselContext } from "./Carousel";
+import { CarouselContext } from ".";
 
 interface CarouselIndicatorProps {
   children?: (

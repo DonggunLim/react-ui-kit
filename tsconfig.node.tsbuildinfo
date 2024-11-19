@@ -1,0 +1,15 @@
+{
+  "root": [
+    "./src/components/index.ts",
+    "./src/components/carousel/carouselindicator.tsx",
+    "./src/components/carousel/carouselitem.tsx",
+    "./src/components/carousel/carouselitemlist.tsx",
+    "./src/components/carousel/carouselnavigator.tsx",
+    "./src/components/carousel/index.tsx",
+    "./src/components/tabs/tabmenu.tsx",
+    "./src/components/tabs/tabmenulist.tsx",
+    "./src/components/tabs/tabpannel.tsx",
+    "./src/components/tabs/index.tsx"
+  ],
+  "version": "5.6.3"
+}

@@ -12,14 +12,15 @@ import CarouselItemList from "./CarouselItemList";
 import CarouselItem from "./CarouselItem";
 import CarouselNavigator from "./CarouselNavigator";
 import CarouselIndicator from "./CarouselIndicator";
-interface CarouselProps extends PropsWithChildren {
-  totalItemCount: number;
-}
+
 interface CarouselCompundProps {
   ItemList: typeof CarouselItemList;
   Item: typeof CarouselItem;
   Navigator: typeof CarouselNavigator;
   Indicator: typeof CarouselIndicator;
+}
+interface CarouselProps extends PropsWithChildren {
+  totalItemCount: number;
 }
 interface CarouselContextProps {
   currentIndex: number;

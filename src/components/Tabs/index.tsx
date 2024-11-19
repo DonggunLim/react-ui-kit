@@ -11,6 +11,7 @@ import {
 import TabMenuList from "./TabMenuList";
 import TabPannel from "./TabPannel";
 import TabMenu from "./TabMenu";
+import { tabsBaseCls } from "../../consts/className";
 
 interface TabsComponundProps {
   Menu: typeof TabMenu;
@@ -20,6 +21,7 @@ interface TabsComponundProps {
 interface TabsProps extends PropsWithChildren {
   onChangeTab: (tabIndex: number) => void;
   defaultTabIndex: number;
+  className?: string;
 }
 interface TabContextProps {
   selectedIndex: number;
@@ -35,6 +37,7 @@ const Tabs: FC<TabsProps> & TabsComponundProps = ({
   children,
   onChangeTab,
   defaultTabIndex,
+  className,
 }) => {
   const [selectedIndex, setSelectedIndex] = useState(defaultTabIndex);
   const handleClickMenu = (index: number) => {
@@ -72,10 +75,16 @@ const Tabs: FC<TabsProps> & TabsComponundProps = ({
     [_children]
   );
 
+  const tabsCls = useMemo(
+    () => (className ? `${className} ${tabsBaseCls}` : `${tabsBaseCls}`),
+    [className]
+  );
   return (
     <TabContext.Provider value={TabContextValue}>
-      {tabMenuList}
-      {tabPannel}
+      <div className={tabsCls}>
+        {tabMenuList}
+        {tabPannel}
+      </div>
     </TabContext.Provider>
   );
 };

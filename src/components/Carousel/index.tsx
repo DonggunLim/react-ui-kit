@@ -12,6 +12,7 @@ import CarouselItemList from "./CarouselItemList";
 import CarouselItem from "./CarouselItem";
 import CarouselNavigator from "./CarouselNavigator";
 import CarouselIndicator from "./CarouselIndicator";
+import { CarouselBaseCls } from "../../consts/className";
 
 interface CarouselCompundProps {
   ItemList: typeof CarouselItemList;
@@ -21,6 +22,7 @@ interface CarouselCompundProps {
 }
 interface CarouselProps extends PropsWithChildren {
   totalItemCount: number;
+  className?: string;
 }
 interface CarouselContextProps {
   currentIndex: number;
@@ -38,6 +40,7 @@ export const CarouselContext = createContext<CarouselContextProps>({
 const Carousel: FC<CarouselProps> & CarouselCompundProps = ({
   children,
   totalItemCount,
+  className,
 }) => {
   const { currentIndex, handleClickNavigator, handleClickIndicator } =
     useCarousel({ totalItemCount });
@@ -73,11 +76,19 @@ const Carousel: FC<CarouselProps> & CarouselCompundProps = ({
     [_children]
   );
 
+  const CarouselCls = useMemo(
+    () =>
+      className ? `${className} ${CarouselBaseCls}` : `${CarouselBaseCls}`,
+    [className]
+  );
+
   return (
     <CarouselContext.Provider value={CarouselContextValue}>
-      {carouselItemList}
-      {carouselNavigator}
-      {carouselIndicator}
+      <div className={CarouselCls}>
+        {carouselItemList}
+        {carouselNavigator}
+        {carouselIndicator}
+      </div>
     </CarouselContext.Provider>
   );
 };

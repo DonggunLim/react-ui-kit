@@ -11,7 +11,7 @@ function App() {
           <p>메인 컨텐츠들이 보입니다.</p>
         </Accordion.Content>
         <Accordion.Button>
-          <button>버튼 아이콘이 보입니다[버튼]</button>
+          <button>👨‍🦰</button>
         </Accordion.Button>
       </Accordion>
     </>

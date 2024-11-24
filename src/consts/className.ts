@@ -25,3 +25,9 @@ export const CarouselIndicatorBaseCls = getBaseCls("carousel-indicator");
 export const CarouselIndicatorButtonsCls = getBaseCls(
   "carousel-indicator-button"
 );
+
+/* Accordion Component*/
+export const AccordionBaseCls = getBaseCls("accordion");
+export const AccordionTitleCls = getBaseCls("accordion-title");
+export const AccordionContentCls = getBaseCls("accordion-content");
+export const AccordionButtonCls = getBaseCls("accordion-button");

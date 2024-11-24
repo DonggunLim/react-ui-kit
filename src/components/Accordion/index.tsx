@@ -4,13 +4,17 @@ import {
   FC,
   PropsWithChildren,
   ReactElement,
+  useMemo,
   useState,
 } from "react";
 import AccordionTitle from "./AccordionTitle";
 import AccordionContent from "./AccordionContent";
 import AccordionButton from "./AccordionButton";
+import { AccordionBaseCls } from "../../consts/className";
 
-interface AccordionProps extends PropsWithChildren {}
+interface AccordionProps extends PropsWithChildren {
+  className?: string;
+}
 
 interface AccordionCompoundProps {
   Title: typeof AccordionTitle;
@@ -27,6 +31,7 @@ export const AccordionContext = createContext<AccordionContextProps>({
 });
 const Accordion: FC<AccordionProps> & AccordionCompoundProps = ({
   children,
+  className,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const handleClickButton = () => setIsOpen(!isOpen);
@@ -36,12 +41,15 @@ const Accordion: FC<AccordionProps> & AccordionCompoundProps = ({
     handleClickButton,
   };
 
-  const _children = Children.toArray(children) as ReactElement[];
-  console.log(_children);
+  const accordionCls = useMemo(
+    () =>
+      className ? `${className} ${AccordionBaseCls}` : `${AccordionBaseCls}`,
+    [className]
+  );
 
   return (
     <AccordionContext.Provider value={accordionContextValue}>
-      {children}
+      <div className={accordionCls}>{children}</div>
     </AccordionContext.Provider>
   );
 };

@@ -1,12 +1,4 @@
-import {
-  Children,
-  createContext,
-  FC,
-  PropsWithChildren,
-  ReactElement,
-  useMemo,
-  useState,
-} from "react";
+import { createContext, FC, PropsWithChildren, useMemo, useState } from "react";
 import AccordionTitle from "./AccordionTitle";
 import AccordionContent from "./AccordionContent";
 import AccordionButton from "./AccordionButton";

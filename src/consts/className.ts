@@ -31,3 +31,9 @@ export const AccordionBaseCls = getBaseCls("accordion");
 export const AccordionTitleCls = getBaseCls("accordion-title");
 export const AccordionContentCls = getBaseCls("accordion-content");
 export const AccordionButtonCls = getBaseCls("accordion-button");
+
+/* Calendar Component */
+export const CalendarBaseCls = getBaseCls("calendar");
+export const CalendarCurrentCls = getBaseCls("calendarCurrent");
+export const CalendarBodyCls = getBaseCls("calendarBody");
+export const CalendarNavigatorCls = getBaseCls("calendarNavigator");

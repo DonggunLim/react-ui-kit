@@ -55,7 +55,7 @@ const CalendarBody = ({ children, className }: CalendarBodyProps) => {
     <>
       {dates.map((date, index) => (
         <p
-          key={index}
+          key={`calendar-item-${index}`}
           onClick={() => handleClickDate(date)}
           className={calendarBodyCls}
         >

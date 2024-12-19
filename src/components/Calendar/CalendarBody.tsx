@@ -6,7 +6,6 @@ interface CalendarBodyProps {
   children?: (dates: Date[], handClick: (date: Date) => void) => JSX.Element[];
   className?: string;
 }
-const memorizedDate = () => {};
 
 const CalendarBody = ({ children, className }: CalendarBodyProps) => {
   const { currentDate, handleClickDate } = useCalendarContext();

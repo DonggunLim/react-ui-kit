@@ -1,4 +1,4 @@
-const Breadcrumbseperator = () => {
+const BreadcrumbSeperator = () => {
   return (
     <>
       <span> &gt; </span>
@@ -6,4 +6,4 @@ const Breadcrumbseperator = () => {
   );
 };
 
-export default Breadcrumbseperator;
+export default BreadcrumbSeperator;

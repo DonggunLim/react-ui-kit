@@ -36,7 +36,7 @@ const CalendarContext = createContext<CalendarContextProps>({
 export const useCalendarContext = () => {
   const context = useContext(CalendarContext);
   if (!context) {
-    throw Error("context value(초기값) 설정이 필요합니다.");
+    throw Error("check calendarcontext value");
   }
   return context;
 };

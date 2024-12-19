@@ -7,7 +7,7 @@ import {
   ReactElement,
   useMemo,
 } from "react";
-import useCarousel from "../../hooks/useCarousel";
+import useCarousel from "./hooks/useCarousel";
 import CarouselItemList from "./CarouselItemList";
 import CarouselItem from "./CarouselItem";
 import CarouselNavigator from "./CarouselNavigator";

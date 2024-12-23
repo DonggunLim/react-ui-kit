@@ -37,6 +37,7 @@ export const CalendarBaseCls = getBaseCls("calendar");
 export const CalendarCurrentCls = getBaseCls("calendarCurrent");
 export const CalendarBodyCls = getBaseCls("calendarBody");
 export const CalendarNavigatorCls = getBaseCls("calendarNavigator");
+
 /* Pagination Component */
 export const PaginationBaseCls = getBaseCls("pagination");
 export const PaginationNavigatorCls = getBaseCls("pagination-navigator");
@@ -58,3 +59,7 @@ export const BreadcrumbBaseCls = getBaseCls("breadcrumb");
 export const BreadcrumbUlContainerCls = getBaseCls("breadcrumb-ul-conatiner");
 export const BreadcrumbItemCls = getBaseCls("breadcrumb-item");
 export const BreadcrumbeLlipsisCls = getBaseCls("breadcrumb-ellipsis");
+
+/* Popover Component */
+export const PopoverTriggerCls = getBaseCls("popover-trigger");
+export const PopoverContentCls = getBaseCls("popover-Content");

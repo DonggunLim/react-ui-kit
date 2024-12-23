@@ -1,16 +1,23 @@
-import { useState } from "react";
-import { Carousel, Tabs, Pagination, Calendar, Breadcrumb } from "./components";
+import "./App.css";
+// import { useState } from "react";
+// import { Carousel, Tabs, Pagination, Calendar, Breadcrumb } from "./components";
+
+import Popover from "./components/Popover";
 
 function App() {
-  const [currentTabIndex, setCurrentTabIndex] = useState(1);
-  const [currentPage, setCurrentPage] = useState(1);
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-  };
+  // const [currentTabIndex, setCurrentTabIndex] = useState(1);
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const handlePageChange = (page: number) => {
+  //   setCurrentPage(page);
+  // };
 
   return (
-    <>
-      <Pagination
+    <div id="app">
+      <Popover position="bottom-center">
+        <Popover.Trigger>Open</Popover.Trigger>
+        <Popover.Content>Place content for the popover here.</Popover.Content>
+      </Popover>
+      {/* <Pagination
         totalPages={23}
         currentPage={currentPage}
         onPageChange={handlePageChange}
@@ -59,8 +66,8 @@ function App() {
         <Calendar.Body>
           {(dates) => dates.map((date) => <div>{date.toLocaleString()}</div>)}
         </Calendar.Body>
-      </Calendar>
-    </>
+      </Calendar> */}
+    </div>
   );
 }
 

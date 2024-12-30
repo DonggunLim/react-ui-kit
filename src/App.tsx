@@ -1,8 +1,10 @@
+import { useEffect, useState } from "react";
 import "./App.css";
 // import { useState } from "react";
 // import { Carousel, Tabs, Pagination, Calendar, Breadcrumb } from "./components";
 
-import Popover from "./components/Popover";
+// import Popover from "./components/Popover";
+import Progress from "./components/Progress";
 
 function App() {
   // const [currentTabIndex, setCurrentTabIndex] = useState(1);
@@ -10,13 +12,24 @@ function App() {
   // const handlePageChange = (page: number) => {
   //   setCurrentPage(page);
   // };
+  const [stop, setStop] = useState<boolean>(false);
+  const getUserData = () => {
+    // User api 호출 ....
+    setTimeout(() => {
+      setStop(true);
+    }, 3000);
+  };
+  useEffect(() => {
+    getUserData();
+  }, []);
 
   return (
     <div id="app">
-      <Popover position="bottom-center">
+      <Progress stop={stop} />
+      {/* <Popover position="bottom-center">
         <Popover.Trigger>Open</Popover.Trigger>
         <Popover.Content>Place content for the popover here.</Popover.Content>
-      </Popover>
+      </Popover> */}
       {/* <Pagination
         totalPages={23}
         currentPage={currentPage}

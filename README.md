@@ -1,50 +1,175 @@
-# React + TypeScript + Vite
+## UI Package(@imdonggun/react-ui-kit)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Accordion
 
-Currently, two official plugins are available:
+#### source
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[src/components/Accordion](https://github.com/DonggunLim/react-ui-kit/tree/main/src/components/Accordion)
 
-## Expanding the ESLint configuration
+#### children
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- index
+- AccordionButton
+- AccordionContent
+- AccordionTitle
 
-- Configure the top-level `parserOptions` property like this:
+### Example
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```jsx
+<Accordion>
+  <Accordion.Title>Title</Accordion.Title>
+  <Accordion.Button>Accordion Button</Accordion.Button>
+  <Accordion.Content>This is AccordionContent</Accordion.Content>
+</Accordion>
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Breadcrumb
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+#### source
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+[src/components/Breadcrumb](https://github.com/DonggunLim/react-ui-kit/tree/main/src/components/Breadcrumb)
+
+#### children
+
+- index
+- BreadcrumbItem
+
+### Example
+
+```jsx
+<Breadcrumb width={200}>
+  <Breadcrumb.Item href="/a">A</Breadcrumb.Item>
+  <Breadcrumb.Item href="/a-a">A-B</Breadcrumb.Item>
+  <Breadcrumb.Item href="/a-a-a">A-B-C</Breadcrumb.Item>
+  <Breadcrumb.Item href="/a-a-a">A-B-C-D</Breadcrumb.Item>
+  <Breadcrumb.Item href="/a-a-a">A-B-C-D-E</Breadcrumb.Item>
+  <Breadcrumb.Item href="/a-a-a">A-B-C-D-E-F</Breadcrumb.Item>
+</Breadcrumb>
+```
+
+### Calendar
+
+#### source
+
+[src/components/Calendar](https://github.com/DonggunLim/react-ui-kit/tree/main/src/components/Calendar)
+
+#### children
+
+- index
+- CalendarCurrent
+- CalendarBody
+- CalendarNavigator
+
+### Example
+
+```jsx
+<Calendar>
+  <Calendar.Navigator></Calendar.Navigator>
+  // custom CalendarBody
+  <Calendar.Body>
+    {(dates) => dates.map((date) => <div>{date.toLocaleString()}</div>)}
+  </Calendar.Body>
+</Calendar>
+```
+
+### Carousel
+
+#### source
+
+[src/components/Carousel](https://github.com/DonggunLim/react-ui-kit/tree/main/src/components/Carousel)
+
+#### children
+
+- index
+- CarouselIndicator
+- CarouselNavigator
+- CarouselItem
+- CarouselItemList
+
+### Example
+
+```jsx
+<Carousel totalItemCount={3}>
+  <Carousel.ItemList>
+    <Carousel.Item index={0}>Item-1</Carousel.Item>
+    <Carousel.Item index={1}>Item-2</Carousel.Item>
+    <Carousel.Item index={2}>Item-3</Carousel.Item>
+  </Carousel.ItemList>
+  <Carousel.Navigator></Carousel.Navigator>
+  <Carousel.Indicator />
+</Carousel>
+```
+
+### Pagination
+
+#### source
+
+[src/components/Pagination](https://github.com/DonggunLim/react-ui-kit/tree/main/src/components/Pagination)
+
+#### children
+
+- index
+- Navigator
+- PageButtons
+
+### Example
+
+```jsx
+<Pagination
+  totalPages={30}
+  currentPage={currentPage}
+  onPageChange={handlePageChange}
+>
+  <Pagination.PageButtons />
+  <Pagination.Navigator />
+</Pagination>
+```
+
+### Popover
+
+#### source
+
+[src/components/Popover](https://github.com/DonggunLim/react-ui-kit/tree/main/src/components/Popover)
+
+#### children
+
+- index
+- PopoverContent
+- PopoverTrigger
+
+### Example
+
+```jsx
+<Popover position="bottom-center">
+  <Popover.Trigger>Open</Popover.Trigger>
+  <Popover.Content>Place content for the popover here.</Popover.Content>
+</Popover>
+```
+
+### Tabs
+
+#### source
+
+[src/components/Tabs](https://github.com/DonggunLim/react-ui-kit/tree/main/src/components/Tabs)
+
+#### children
+
+- index
+- TabMenu
+- TabMenuList
+- TabPannel
+
+### Example
+
+```jsx
+<Tabs onChangeTab={handleChangeTab} defaultTabIndex={currentTabIndex}>
+  <Tabs.MenuList>
+    <Tabs.Menu index={1}>Menu1</Tabs.Menu>
+    <Tabs.Menu index={2}>Menu2</Tabs.Menu>
+    <Tabs.Menu index={3}>Menu3</Tabs.Menu>
+  </Tabs.MenuList>
+  <Tabs.Pannel index={1}>Content1</Tabs.Pannel>
+  <Tabs.Pannel index={2}>Content2</Tabs.Pannel>
+  <Tabs.Pannel index={3}>Content3</Tabs.Pannel>
+</Tabs>
 ```

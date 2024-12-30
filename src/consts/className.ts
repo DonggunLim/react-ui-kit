@@ -63,3 +63,7 @@ export const BreadcrumbeLlipsisCls = getBaseCls("breadcrumb-ellipsis");
 /* Popover Component */
 export const PopoverTriggerCls = getBaseCls("popover-trigger");
 export const PopoverContentCls = getBaseCls("popover-Content");
+
+/* Progress Component */
+export const ProgressBaseCls = getBaseCls("progress");
+export const ProgressBarCls = getBaseCls("progress-bar");

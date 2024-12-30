@@ -173,3 +173,19 @@
   <Tabs.Pannel index={3}>Content3</Tabs.Pannel>
 </Tabs>
 ```
+
+### Progress
+
+#### source
+
+[src/components/Progress](https://github.com/DonggunLim/react-ui-kit/tree/main/src/components/Progress)
+
+#### children
+
+- index
+
+### Example
+
+```jsx
+<Progress stop={stop} />
+```

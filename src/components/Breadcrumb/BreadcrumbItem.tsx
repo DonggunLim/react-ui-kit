@@ -32,10 +32,12 @@ const BreadcrumbItem: FC<BreadcrumbItemProps> = ({ children, index, href }) => {
 
   return (
     <li style={{ display: "inline-block" }}>
-      <span ref={breadcrumbItemRef}>
-        {children}
-        {isNeedSeperator && <BreadcrumbSeperator />}
-      </span>
+      <a href={href}>
+        <span ref={breadcrumbItemRef}>
+          {children}
+          {isNeedSeperator && <BreadcrumbSeperator />}
+        </span>
+      </a>
     </li>
   );
 };

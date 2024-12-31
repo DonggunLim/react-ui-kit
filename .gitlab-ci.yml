@@ -1,10 +1,10 @@
 build-deploy:
-  stage: build
-  tags:
+  stage: build ## The names and order of the pipeline stages.
+  tags: ## List of tags that are used to select a runner.
     - elice-test-ci-dg
   only:
     - main
-  before_script:
+  before_script: ## Override a set of commands that are executed before job.
     - whoami
     - echo "Exec [build] stage....."
     - echo "Setup NodeJS 18.x ...";
@@ -13,6 +13,7 @@ build-deploy:
     - sudo apt-get install curl -y
     - sudo curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash --
     - sudo apt-get install nodejs -y
-  script:
+  script: ## Shell script that is executed by a runner.
     - npm install
     - npm run build
+    - pwd

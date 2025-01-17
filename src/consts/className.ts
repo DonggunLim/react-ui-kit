@@ -67,3 +67,10 @@ export const PopoverContentCls = getBaseCls("popover-Content");
 /* Progress Component */
 export const ProgressBaseCls = getBaseCls("progress");
 export const ProgressBarCls = getBaseCls("progress-bar");
+
+/* Modal Component */
+export const ModalBaseCls = getBaseCls("modal");
+export const ModalBackdropBaseCls = getBaseCls("modal-backdrop");
+export const ModalTriggerBaseCls = getBaseCls("modal-trigger");
+export const ModalContentBaseCls = getBaseCls("modal-content");
+export const ModalCLoseBaseCls = getBaseCls("modal-close");

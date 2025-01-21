@@ -5,9 +5,8 @@ import { DatePickerProps } from "./types";
 const DatePicker = ({ date, onChangeDate }: DatePickerProps) => {
   return (
     <>
-      <Popover>
+      <Popover.Root>
         <Popover.Trigger>
-          {/* <div>{date.toLocaleDateString()}</div> */}
           {(ref, hanldeClickButton) => (
             <a
               style={{ backgroundColor: "gray", padding: "8px" }}
@@ -24,7 +23,7 @@ const DatePicker = ({ date, onChangeDate }: DatePickerProps) => {
             <Calendar.Navigator />
           </Calendar>
         </Popover.Content>
-      </Popover>
+      </Popover.Root>
     </>
   );
 };

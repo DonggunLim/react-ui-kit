@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { UseContentPositionProps } from "../types/types";
+import { UseContentPositionProps } from "../types";
 
 const useContentPosition = (props: UseContentPositionProps) => {
   const { contentPosition, triggerRect, contentRect } = props;

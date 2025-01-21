@@ -1,13 +1,4 @@
-import {
-  DetailedHTMLProps,
-  LegacyRef,
-  PropsWithChildren,
-  ReactElement,
-  ReactNode,
-  RefObject,
-} from "react";
-import PopoverTrigger from "../PopoverTrigger";
-import PopoverContent from "../PopoverContent";
+import { PropsWithChildren, ReactNode, RefObject } from "react";
 
 export type PositionType = "bottom-left" | "bottom-center" | "bottom-right";
 export type TriggerRect = Omit<DOMRect, "toJSON">;
@@ -17,10 +8,6 @@ export type ContentInnerRect = TriggerRect;
 /* Popover Component Props */
 export interface PopoverProps extends PropsWithChildren {
   position?: PositionType;
-}
-export interface PopoverCompoundProps {
-  Trigger: typeof PopoverTrigger;
-  Content: typeof PopoverContent;
 }
 
 /* Popover Content Props */
@@ -60,4 +47,9 @@ export interface UseContentPositionProps {
   contentPosition: PositionType;
   triggerRect: TriggerRect;
   contentRect: ContentRect;
+}
+
+/* PopoverRef Props */
+export interface PopoverRefProps {
+  close: () => void;
 }

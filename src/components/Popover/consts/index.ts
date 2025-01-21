@@ -1,4 +1,4 @@
-import { ContentRect, TriggerRect } from "../types/types";
+import { ContentRect, TriggerRect } from "../types";
 
 export const DEFAULT_TRIGGER_RECT: TriggerRect = {
   top: 0,

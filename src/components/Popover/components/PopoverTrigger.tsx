@@ -1,7 +1,7 @@
 import { FC, MouseEventHandler, ReactNode, useEffect, useMemo } from "react";
-import { usePopoverContext } from "./context/PopoverProivder";
-import { PopoverTriggerProps } from "./types/types";
-import { PopoverTriggerCls } from "../../consts/className";
+import { PopoverTriggerProps } from "../types";
+import { PopoverTriggerCls } from "../../../consts/className";
+import { usePopoverContext } from "./Root";
 
 const PopoverTrigger: FC<PopoverTriggerProps> = ({ children, className }) => {
   const { handlePopoverVisible, handleTriggerRect, triggerRef } =
@@ -34,7 +34,7 @@ const PopoverTrigger: FC<PopoverTriggerProps> = ({ children, className }) => {
         onClick={hanldeClickButton}
         ref={triggerRef as never}
       >
-        {children as ReactNode}
+        {(children as ReactNode) || "trigger"}
       </button>
     </>
   );

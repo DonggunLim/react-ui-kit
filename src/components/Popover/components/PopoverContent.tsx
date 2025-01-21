@@ -1,11 +1,11 @@
 import { FC, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { ContentRect, PopoverContentProps } from "./types/types";
-import { usePopoverContext } from "./context/PopoverProivder";
-import useContentPosition from "./hooks/useContentPosition";
-import { useDebounce } from "./hooks/useDebounce";
-import { PopoverContentCls } from "../../consts/className";
-import { DEFAULT_CONTENT_RECT } from "./consts";
+import { ContentRect, PopoverContentProps } from "../types";
+import { DEFAULT_CONTENT_RECT } from "../consts";
+import { usePopoverContext } from "./Root";
+import useContentPosition from "../hooks/useContentPosition";
+import { PopoverContentCls } from "../../../consts/className";
+import { useDebounce } from "../hooks/useDebounce";
 
 const PopoverContent: FC<PopoverContentProps> = ({ children, className }) => {
   const contentRef = useRef<HTMLDivElement>(null);

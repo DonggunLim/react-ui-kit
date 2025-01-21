@@ -3,7 +3,9 @@ import { TriggerRect } from "../types/types";
 import { DEFAULT_TRIGGER_RECT } from "../consts";
 
 export const usePopover = () => {
-  const triggerRef = useRef<HTMLButtonElement>(null);
+  const triggerRef = useRef<HTMLElement & HTMLDivElement & HTMLButtonElement>(
+    null
+  );
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const [triggerRect, setTriggerRect] = useState(DEFAULT_TRIGGER_RECT);
 

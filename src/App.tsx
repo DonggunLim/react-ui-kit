@@ -1,17 +1,23 @@
 import { useState } from "react";
 import "./App.css";
-import DatePicker from "./components/DatePicker";
+import Select from "./components/Select";
 
 function App() {
-  const [seelctedDate, setSelectedDate] = useState(new Date());
-  const handleChangeDate = (date: Date) => {
-    console.log(date); // console로 DatePicker의 선택된 Date 객체 출력.
-    setSelectedDate(date);
+  const [selectedValue, setSelectedValue] = useState<string>("1");
+  const handleChangeValue = (selectedValue: string) => {
+    setSelectedValue(selectedValue);
   };
 
   return (
     <div id="app">
-      <DatePicker date={seelctedDate} onChangeDate={handleChangeDate} />
+      <Select.Root onChangeValue={handleChangeValue} value={selectedValue}>
+        <Select.Trigger>Select Item</Select.Trigger>
+        <Select.Content>
+          <Select.Item value={"1"}>One</Select.Item>
+          <Select.Item value={"2"}>Two</Select.Item>
+          <Select.Item value={"3"}>Three</Select.Item>
+        </Select.Content>
+      </Select.Root>
     </div>
   );
 }

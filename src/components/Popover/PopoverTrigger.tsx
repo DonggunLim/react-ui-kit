@@ -1,4 +1,4 @@
-import { FC, MouseEventHandler, useEffect, useMemo } from "react";
+import { FC, MouseEventHandler, ReactNode, useEffect, useMemo } from "react";
 import { usePopoverContext } from "./context/PopoverProivder";
 import { PopoverTriggerProps } from "./types/types";
 import { PopoverTriggerCls } from "../../consts/className";
@@ -23,14 +23,18 @@ const PopoverTrigger: FC<PopoverTriggerProps> = ({ children, className }) => {
     [className]
   );
 
+  if (typeof children === "function" && triggerRef.current) {
+    return children(triggerRef as never, hanldeClickButton);
+  }
+
   return (
     <>
       <button
         className={triggerCls}
         onClick={hanldeClickButton}
-        ref={triggerRef}
+        ref={triggerRef as never}
       >
-        {children}
+        {children as ReactNode}
       </button>
     </>
   );

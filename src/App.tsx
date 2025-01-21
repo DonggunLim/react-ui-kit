@@ -1,36 +1,17 @@
 import { useState } from "react";
 import "./App.css";
-import Modal from "./components/Modal";
+import DatePicker from "./components/DatePicker";
 
 function App() {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  const handleCloseModal = () => {
-    setIsOpen(false);
-  };
-
-  const handleOpenModal = () => {
-    setIsOpen(true);
+  const [seelctedDate, setSelectedDate] = useState(new Date());
+  const handleChangeDate = (date: Date) => {
+    console.log(date); // console로 DatePicker의 선택된 Date 객체 출력.
+    setSelectedDate(date);
   };
 
   return (
     <div id="app">
-      <Modal.Root
-        onCloseModal={handleCloseModal}
-        onOpenModal={handleOpenModal}
-        open={isOpen}
-      >
-        <Modal.Backdrop />
-        <Modal.Trigger>
-          <button>custom trigger button</button>
-        </Modal.Trigger>
-        <Modal.Content>
-          <Modal.Close>
-            <button>custom close button</button>
-          </Modal.Close>
-          Modal Content 내부 입니다.
-        </Modal.Content>
-      </Modal.Root>
+      <DatePicker date={seelctedDate} onChangeDate={handleChangeDate} />
     </div>
   );
 }

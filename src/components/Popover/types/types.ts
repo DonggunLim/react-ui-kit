@@ -1,4 +1,11 @@
-import { PropsWithChildren, RefObject } from "react";
+import {
+  DetailedHTMLProps,
+  LegacyRef,
+  PropsWithChildren,
+  ReactElement,
+  ReactNode,
+  RefObject,
+} from "react";
 import PopoverTrigger from "../PopoverTrigger";
 import PopoverContent from "../PopoverContent";
 
@@ -22,8 +29,15 @@ export interface PopoverContentProps extends PropsWithChildren {
 }
 
 /* Popover Trigger Props */
-export interface PopoverTriggerProps extends PropsWithChildren {
+export interface PopoverTriggerProps {
   className?: string;
+  children?:
+    | ((
+        ref: RefObject<HTMLElement>,
+        cb: (e: React.MouseEvent) => void
+      ) => ReactNode)
+    | ReactNode;
+  title?: string;
 }
 
 /* Popover Context */
@@ -31,7 +45,7 @@ export interface PopoverContextProps {
   isPopoverOpen: boolean;
   triggerRect: TriggerRect;
   contentPosition: PositionType;
-  triggerRef: RefObject<HTMLButtonElement>;
+  triggerRef: RefObject<HTMLElement>;
   handlePopoverVisible: () => void;
   handleTriggerRect: (position: TriggerRect) => void;
 }

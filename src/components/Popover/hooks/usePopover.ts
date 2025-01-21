@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { TriggerRect } from "../types/types";
+import { TriggerRect } from "../types";
 import { DEFAULT_TRIGGER_RECT } from "../consts";
 
 export const usePopover = () => {
@@ -10,6 +10,7 @@ export const usePopover = () => {
   const [triggerRect, setTriggerRect] = useState(DEFAULT_TRIGGER_RECT);
 
   const handlePopoverVisible = () => setIsPopoverOpen(!isPopoverOpen);
+  const handleClosePopover = () => setIsPopoverOpen(false);
   const handleTriggerRect = (position: TriggerRect) => setTriggerRect(position);
 
   return {
@@ -18,5 +19,6 @@ export const usePopover = () => {
     triggerRect,
     handlePopoverVisible,
     handleTriggerRect,
+    handleClosePopover,
   };
 };

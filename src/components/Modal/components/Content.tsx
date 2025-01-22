@@ -16,7 +16,19 @@ const Content = ({ children, className }: ContentProps) => {
   return (
     isOpen &&
     createPortal(
-      <section className={baseCls}>{children}</section>,
+      <section
+        className={baseCls}
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          backgroundColor: "#fff",
+          zIndex: 1001,
+        }}
+      >
+        {children}
+      </section>,
       document.body
     )
   );

@@ -3,7 +3,7 @@ import { usePaginationContext } from ".";
 import {
   PaginationPageButtonElementCls,
   PaginationPageButtonsContainerCls,
-} from "../../consts/className";
+} from "@consts/className";
 
 interface PageButtonsProps {
   className?: string;

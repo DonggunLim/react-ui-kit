@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren, useContext } from "react";
 import { TabContext } from ".";
-import { tabsPannelBaseCls } from "../../consts/className";
+import { tabsPannelBaseCls } from "@consts/className";
 
 interface TabPannelProps extends PropsWithChildren {
   index?: number;

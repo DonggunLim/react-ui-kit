@@ -1,7 +1,7 @@
 import { cloneElement, ReactElement, useMemo } from "react";
 import { CloseProps } from "../types";
 import { useModalContext } from "./Root";
-import { ModalCLoseBaseCls } from "../../../consts/className";
+import { ModalCLoseBaseCls } from "@consts/className";
 
 const Close = ({ children, className }: CloseProps) => {
   const { handleTriggerModal, onCloseModal } = useModalContext();

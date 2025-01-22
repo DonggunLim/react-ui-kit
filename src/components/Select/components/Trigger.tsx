@@ -1,4 +1,4 @@
-import Popover from "../../Popover";
+import Popover from "@ui/Popover";
 import { SelectTriggerProps } from "../types";
 import { useSelectContext } from "./Root";
 

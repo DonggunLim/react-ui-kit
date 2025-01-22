@@ -8,7 +8,7 @@ import {
 import Navigator from "./Navigator";
 import PageButtons from "./PageButtons";
 import { usePaginate } from "./hooks/usePaginate";
-import { PaginationBaseCls } from "../../consts/className";
+import { PaginationBaseCls } from "@consts/className";
 
 interface PaginationProps extends PropsWithChildren {
   totalPages: number;

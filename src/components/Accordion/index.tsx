@@ -2,7 +2,7 @@ import { createContext, FC, PropsWithChildren, useMemo, useState } from "react";
 import AccordionTitle from "./AccordionTitle";
 import AccordionContent from "./AccordionContent";
 import AccordionButton from "./AccordionButton";
-import { AccordionBaseCls } from "../../consts/className";
+import { AccordionBaseCls } from "@consts/className";
 
 interface AccordionProps extends PropsWithChildren {
   className?: string;

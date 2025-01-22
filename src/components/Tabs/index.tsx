@@ -11,7 +11,7 @@ import {
 import TabMenuList from "./TabMenuList";
 import TabPannel from "./TabPannel";
 import TabMenu from "./TabMenu";
-import { tabsBaseCls } from "../../consts/className";
+import { tabsBaseCls } from "@consts/className";
 
 interface TabsComponundProps {
   Menu: typeof TabMenu;

@@ -4,8 +4,8 @@ import { ContentRect, PopoverContentProps } from "../types";
 import { DEFAULT_CONTENT_RECT } from "../consts";
 import { usePopoverContext } from "./Root";
 import useContentPosition from "../hooks/useContentPosition";
-import { PopoverContentCls } from "../../../consts/className";
 import { useDebounce } from "../hooks/useDebounce";
+import { PopoverContentCls } from "@consts/className";
 
 const PopoverContent: FC<PopoverContentProps> = ({ children, className }) => {
   const contentRef = useRef<HTMLDivElement>(null);

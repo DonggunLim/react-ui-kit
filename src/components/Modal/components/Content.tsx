@@ -2,7 +2,7 @@ import { createPortal } from "react-dom";
 import { ContentProps } from "../types";
 import { useModalContext } from "./Root";
 import { useMemo } from "react";
-import { ModalContentBaseCls } from "../../../consts/className";
+import { ModalContentBaseCls } from "@consts/className";
 
 const Content = ({ children, className }: ContentProps) => {
   const { isOpen } = useModalContext();

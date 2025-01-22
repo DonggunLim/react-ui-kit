@@ -9,7 +9,7 @@ import {
 import CalendarCurrent from "./CalendarCurrent";
 import CalendarNavigator from "./CalendarNavigator";
 import CalendarBody from "./CalendarBody";
-import { CalendarBaseCls } from "../../consts/className";
+import { CalendarBaseCls } from "@consts/className";
 
 interface CalendarProps extends PropsWithChildren {
   date?: Date;

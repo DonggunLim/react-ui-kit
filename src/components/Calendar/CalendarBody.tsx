@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useCalendarContext } from ".";
-import { CalendarBodyCls } from "../../consts/className";
+import { CalendarBodyCls } from "@consts/className";
 
 interface CalendarBodyProps {
   children?: (dates: Date[], handClick: (date: Date) => void) => JSX.Element[];

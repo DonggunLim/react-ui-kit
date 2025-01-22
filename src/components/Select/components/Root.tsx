@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useContext, useRef, useState } from "react";
 import { RootProps, SelectContextProps, SelectItem } from "../types";
-import Popover from "../../Popover";
 import { PopoverRefProps } from "../../Popover/types";
+import Popover from "@ui/Popover";
 
 const SelectContext = createContext<SelectContextProps>({
   handleClickItem: () => {},

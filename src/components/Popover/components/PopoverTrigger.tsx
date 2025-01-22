@@ -1,7 +1,7 @@
 import { FC, MouseEventHandler, ReactNode, useEffect, useMemo } from "react";
 import { PopoverTriggerProps } from "../types";
-import { PopoverTriggerCls } from "../../../consts/className";
 import { usePopoverContext } from "./Root";
+import { PopoverTriggerCls } from "@consts/className";
 
 const PopoverTrigger: FC<PopoverTriggerProps> = ({ children, className }) => {
   const { handlePopoverVisible, handleTriggerRect, triggerRef } =

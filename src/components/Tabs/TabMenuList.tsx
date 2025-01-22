@@ -1,5 +1,5 @@
+import { tabsMenuListBaseCls } from "@consts/className";
 import { FC, PropsWithChildren } from "react";
-import { tabsMenuListBaseCls } from "../../consts/className";
 
 interface TabMenuListProps extends PropsWithChildren {}
 

@@ -1,8 +1,8 @@
 import { createPortal } from "react-dom";
 import { BackdropProps } from "../types";
 import { useModalContext } from "./Root";
-import { ModalBackdropBaseCls } from "../../../consts/className";
 import { useMemo } from "react";
+import { ModalBackdropBaseCls } from "@consts/className";
 
 const Backdrop = ({ children, className }: BackdropProps) => {
   const { handleTriggerModal, onCloseModal, isOpen } = useModalContext();

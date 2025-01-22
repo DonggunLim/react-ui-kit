@@ -4,7 +4,8 @@ import {
   PaginationNavigatorCls,
   PaginationNavigatorNextButtonCls,
   PaginationNavigatorPrevButtonCls,
-} from "../../consts/className";
+} from "@consts/className";
+
 interface NavigatorProps {
   className?: string;
 }

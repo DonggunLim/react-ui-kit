@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren, useContext } from "react";
 import { CarouselContext } from ".";
-import { CarouselItemBaseCls } from "../../consts/className";
+import { CarouselItemBaseCls } from "@consts/className";
 
 interface CarouselItemProps extends PropsWithChildren {
   index?: number;

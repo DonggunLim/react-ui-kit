@@ -1,5 +1,5 @@
-import Calendar from "../Calendar";
-import Popover from "../Popover";
+import Popover from "@ui/Popover";
+import Calendar from "@ui/Calendar";
 import { DatePickerProps } from "./types";
 
 const DatePicker = ({ date, onChangeDate }: DatePickerProps) => {

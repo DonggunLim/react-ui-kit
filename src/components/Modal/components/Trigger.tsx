@@ -1,7 +1,7 @@
 import { cloneElement, ReactElement, useMemo } from "react";
 import { TriggerProps } from "../types";
 import { useModalContext } from "./Root";
-import { ModalTriggerBaseCls } from "../../../consts/className";
+import { ModalTriggerBaseCls } from "@consts/className";
 
 const Trigger = ({ children, className }: TriggerProps) => {
   const { handleTriggerModal, onOpenModal } = useModalContext();

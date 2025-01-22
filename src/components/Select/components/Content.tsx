@@ -1,4 +1,4 @@
-import Popover from "../../Popover";
+import Popover from "@ui/Popover";
 import { SelectContentProps } from "../types";
 
 const Content = ({ children }: SelectContentProps) => {

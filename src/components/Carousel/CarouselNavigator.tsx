@@ -4,7 +4,7 @@ import {
   CarouselNavigatorBaseCls,
   CarouselNavigatorNextButtonBaseCls,
   CarouselNavigatorPrevButtonBaseCls,
-} from "../../consts/className";
+} from "@consts/className";
 
 interface CarouselNavigatorProps {
   children?: (callback: (indicator: 1 | -1) => void) => JSX.Element;

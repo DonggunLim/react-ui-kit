@@ -1,5 +1,5 @@
+import { AccordionTitleCls } from "@consts/className";
 import { FC, PropsWithChildren, useMemo } from "react";
-import { AccordionTitleCls } from "../../consts/className";
 
 interface AccordionTitleProps extends PropsWithChildren {
   className?: string;

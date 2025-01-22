@@ -16,7 +16,8 @@ import {
   BreadcrumbBaseCls,
   BreadcrumbeLlipsisCls,
   BreadcrumbUlContainerCls,
-} from "../../consts/className";
+} from "@consts/className";
+
 const DEFAULT_BREADCRUMB_WIDTH = 500;
 interface BreadcrumbProps extends PropsWithChildren {
   className?: string;

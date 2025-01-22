@@ -3,7 +3,7 @@ import { CarouselContext } from ".";
 import {
   CarouselIndicatorBaseCls,
   CarouselIndicatorButtonsCls,
-} from "../../consts/className";
+} from "@consts/className";
 
 interface CarouselIndicatorProps {
   children?: (

@@ -1,5 +1,5 @@
+import { ProgressBarCls, ProgressBaseCls } from "@consts/className";
 import { FC, useEffect, useMemo, useRef } from "react";
-import { ProgressBarCls, ProgressBaseCls } from "../../consts/className";
 
 interface ProgressInterface {
   stop: boolean;

@@ -1142,7 +1142,54 @@ const Xr = ({ children: r, className: t }) => {
 Ee.Title = Xr;
 Ee.Content = Zr;
 Ee.Button = Qr;
-const At = {
+const mn = ({
+  stop: r,
+  className: t,
+  progressBarClassName: n
+}) => {
+  const o = L(), c = L(null), l = L(0), d = () => {
+    c.current && (c.current.style.display = "none");
+  }, f = (b) => {
+    if (c.current) {
+      if (o.current && (l.current >= 99 || b)) {
+        cancelAnimationFrame(o.current);
+        const P = c.current;
+        P.style.width = "100%", P.style.transition = "0.3s", P.addEventListener("transitionend", d);
+        return;
+      }
+      l.current += 0.25, c.current.style.width = `${l.current}%`, r === !1 && (o.current = requestAnimationFrame(() => f(b)));
+    }
+  };
+  Q(() => {
+    if (o.current = requestAnimationFrame(() => f(r)), !!c.current)
+      return () => {
+        var b;
+        o.current && cancelAnimationFrame(o.current), (b = c.current) == null || b.removeEventListener(
+          "transitionend",
+          d
+        );
+      };
+  }, [r]);
+  const u = g(
+    () => t ? `${t} ${bt}` : `${bt}`,
+    [t]
+  ), p = g(
+    () => n ? `${n} ${mt}` : `${mt}`,
+    [n]
+  );
+  return /* @__PURE__ */ s.jsx("div", { style: { width: "100%", height: "30px" }, className: u, children: /* @__PURE__ */ s.jsx(
+    "div",
+    {
+      ref: c,
+      style: {
+        backgroundColor: "#4caf50",
+        height: "100%",
+        transition: "0.1s"
+      },
+      className: p
+    }
+  ) });
+}, At = {
   top: 0,
   right: 0,
   bottom: 0,
@@ -1323,53 +1370,6 @@ const At = {
   Root: rn,
   Content: an,
   Trigger: sn
-}, mn = ({
-  stop: r,
-  className: t,
-  progressBarClassName: n
-}) => {
-  const o = L(), c = L(null), l = L(0), d = () => {
-    c.current && (c.current.style.display = "none");
-  }, f = (b) => {
-    if (c.current) {
-      if (o.current && (l.current >= 99 || b)) {
-        cancelAnimationFrame(o.current);
-        const P = c.current;
-        P.style.width = "100%", P.style.transition = "0.3s", P.addEventListener("transitionend", d);
-        return;
-      }
-      l.current += 0.25, c.current.style.width = `${l.current}%`, r === !1 && (o.current = requestAnimationFrame(() => f(b)));
-    }
-  };
-  Q(() => {
-    if (o.current = requestAnimationFrame(() => f(r)), !!c.current)
-      return () => {
-        var b;
-        o.current && cancelAnimationFrame(o.current), (b = c.current) == null || b.removeEventListener(
-          "transitionend",
-          d
-        );
-      };
-  }, [r]);
-  const u = g(
-    () => t ? `${t} ${bt}` : `${bt}`,
-    [t]
-  ), p = g(
-    () => n ? `${n} ${mt}` : `${mt}`,
-    [n]
-  );
-  return /* @__PURE__ */ s.jsx("div", { style: { width: "100%", height: "30px" }, className: u, children: /* @__PURE__ */ s.jsx(
-    "div",
-    {
-      ref: c,
-      style: {
-        backgroundColor: "#4caf50",
-        height: "100%",
-        transition: "0.1s"
-      },
-      className: p
-    }
-  ) });
 }, Lt = M({
   handleClickItem: () => {
   },

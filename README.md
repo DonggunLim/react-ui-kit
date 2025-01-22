@@ -23,6 +23,14 @@
 </Accordion>
 ```
 
+<br/>
+<br/>
+
+---
+
+<br/>
+<br/>
+
 ### Breadcrumb
 
 #### source
@@ -46,6 +54,14 @@
   <Breadcrumb.Item href="/a-a-a">A-B-C-D-E-F</Breadcrumb.Item>
 </Breadcrumb>
 ```
+
+<br/>
+<br/>
+
+---
+
+<br/>
+<br/>
 
 ### Calendar
 
@@ -71,6 +87,14 @@
   </Calendar.Body>
 </Calendar>
 ```
+
+<br/>
+<br/>
+
+---
+
+<br/>
+<br/>
 
 ### Carousel
 
@@ -100,6 +124,14 @@
 </Carousel>
 ```
 
+<br/>
+<br/>
+
+---
+
+<br/>
+<br/>
+
 ### Pagination
 
 #### source
@@ -125,6 +157,14 @@
 </Pagination>
 ```
 
+<br/>
+<br/>
+
+---
+
+<br/>
+<br/>
+
 ### Popover
 
 #### source
@@ -133,18 +173,26 @@
 
 #### children
 
-- index
+- Root
 - PopoverContent
 - PopoverTrigger
 
 ### Example
 
 ```jsx
-<Popover position="bottom-center">
+<Popover.Root position="bottom-center">
   <Popover.Trigger>Open</Popover.Trigger>
   <Popover.Content>Place content for the popover here.</Popover.Content>
-</Popover>
+</Popover.Root>
 ```
+
+<br/>
+<br/>
+
+---
+
+<br/>
+<br/>
 
 ### Tabs
 
@@ -174,6 +222,14 @@
 </Tabs>
 ```
 
+<br/>
+<br/>
+
+---
+
+<br/>
+<br/>
+
 ### Progress
 
 #### source
@@ -188,4 +244,101 @@
 
 ```jsx
 <Progress stop={stop} />
+```
+
+<br/>
+<br/>
+
+---
+
+<br/>
+<br/>
+
+### DatePicker
+
+#### source
+
+[src/components/DatePicker](https://github.com/DonggunLim/react-ui-kit/tree/main/src/components/DatePicker)
+
+#### children
+
+- index
+
+### Example
+
+```jsx
+<DatePicker date={new Date()} onChange={handleChangeDate} />
+```
+
+<br/>
+<br/>
+
+---
+
+<br/>
+<br/>
+
+### Modal
+
+#### source
+
+[src/components/Modal](https://github.com/DonggunLim/react-ui-kit/tree/main/src/components/Modal)
+
+#### children
+
+- Root
+- Backdrop
+- Trigger
+- Close
+- Content
+
+### Example
+
+```jsx
+<Modal.Root onCloseModal={handleCloseModal} open={isOpen}>
+  <Modal.Backdrop />
+  <Modal.Trigger>
+      <div>Custom-Trigger</div>
+  </Modal.Trigger>
+  <Modal.Content>
+    <Modal.Close>
+          <div> custom-modal-close</div>
+    <Modal.Close/>
+    <div>Modal Content</div>
+  </Modal.Content>
+</Modal>
+```
+
+<br/>
+<br/>
+
+---
+
+<br/>
+<br/>
+
+### Modal
+
+#### source
+
+[src/components/Modal](https://github.com/DonggunLim/react-ui-kit/tree/main/src/components/Modal)
+
+#### children
+
+- Root
+- Trigger
+- Content
+- Item
+
+### Example
+
+```jsx
+<Select.Root onChangeValue={handleChangeValue} value={selectedValue}>
+  <Select.Trigger>Select Item</Select.Trigger>
+  <Select.Content>
+    <Select.Item value={"1"}>One</Select.Item>
+    <Select.Item value={"2"}>Two</Select.Item>
+    <Select.Item value={"3"}>Three</Select.Item>
+  </Select.Content>
+</Select.Root>
 ```

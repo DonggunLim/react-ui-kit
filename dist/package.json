@@ -1,0 +1,1 @@
+{"version":"0.0.9","name":"@imdonggun/react-ui-kit","main":"./index.cjs","module":"./index.js","types":"./types/index.d.ts","peerDependencies":{"react":"^18.3.1","react-dom":"^18.3.1"}}

@@ -1,191 +1,127 @@
-## UI Package(@imdonggun/react-ui-kit)
+# React + TypeScript + Vite
 
-### Accordion
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-#### source
+Currently, two official plugins are available:
 
-[src/components/Accordion](https://github.com/DonggunLim/react-ui-kit/tree/main/src/components/Accordion)
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-#### children
+## Expanding the ESLint configuration
 
-- index
-- AccordionButton
-- AccordionContent
-- AccordionTitle
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-### Example
+- Configure the top-level `parserOptions` property like this:
 
-```jsx
-<Accordion>
-  <Accordion.Title>Title</Accordion.Title>
-  <Accordion.Button>Accordion Button</Accordion.Button>
-  <Accordion.Content>This is AccordionContent</Accordion.Content>
-</Accordion>
+```js
+export default tseslint.config({
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+});
 ```
 
-### Breadcrumb
+- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
+- Optionally add `...tseslint.configs.stylisticTypeChecked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-#### source
+```js
+// eslint.config.js
+import react from "eslint-plugin-react";
 
-[src/components/Breadcrumb](https://github.com/DonggunLim/react-ui-kit/tree/main/src/components/Breadcrumb)
-
-#### children
-
-- index
-- BreadcrumbItem
-
-### Example
-
-```jsx
-<Breadcrumb width={200}>
-  <Breadcrumb.Item href="/a">A</Breadcrumb.Item>
-  <Breadcrumb.Item href="/a-a">A-B</Breadcrumb.Item>
-  <Breadcrumb.Item href="/a-a-a">A-B-C</Breadcrumb.Item>
-  <Breadcrumb.Item href="/a-a-a">A-B-C-D</Breadcrumb.Item>
-  <Breadcrumb.Item href="/a-a-a">A-B-C-D-E</Breadcrumb.Item>
-  <Breadcrumb.Item href="/a-a-a">A-B-C-D-E-F</Breadcrumb.Item>
-</Breadcrumb>
+export default tseslint.config({
+  // Set the react version
+  settings: { react: { version: "18.3" } },
+  plugins: {
+    // Add the react plugin
+    react,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended rules
+    ...react.configs.recommended.rules,
+    ...react.configs["jsx-runtime"].rules,
+  },
+});
 ```
 
-### Calendar
+### DatePicker
 
 #### source
 
-[src/components/Calendar](https://github.com/DonggunLim/react-ui-kit/tree/main/src/components/Calendar)
+[src/components/DatePicker](https://github.com/DonggunLim/react-ui-kit/tree/main/src/components/DatePicker)
 
 #### children
 
 - index
-- CalendarCurrent
-- CalendarBody
-- CalendarNavigator
 
 ### Example
 
 ```jsx
-<Calendar>
-  <Calendar.Navigator></Calendar.Navigator>
-  // custom CalendarBody
-  <Calendar.Body>
-    {(dates) => dates.map((date) => <div>{date.toLocaleString()}</div>)}
-  </Calendar.Body>
-</Calendar>
+<DatePicker stop={stop} date={selectedDate} onChangeDate={handleChangeDate} />
 ```
 
-### Carousel
+### Modal
 
 #### source
 
-[src/components/Carousel](https://github.com/DonggunLim/react-ui-kit/tree/main/src/components/Carousel)
+[src/components/Modal](https://github.com/DonggunLim/react-ui-kit/tree/main/src/components/Modal)
 
 #### children
 
-- index
-- CarouselIndicator
-- CarouselNavigator
-- CarouselItem
-- CarouselItemList
+- Root
+- Backdrop
+- Trigger
+- Content
+- Close
 
 ### Example
 
 ```jsx
-<Carousel totalItemCount={3}>
-  <Carousel.ItemList>
-    <Carousel.Item index={0}>Item-1</Carousel.Item>
-    <Carousel.Item index={1}>Item-2</Carousel.Item>
-    <Carousel.Item index={2}>Item-3</Carousel.Item>
-  </Carousel.ItemList>
-  <Carousel.Navigator></Carousel.Navigator>
-  <Carousel.Indicator />
-</Carousel>
-```
-
-### Pagination
-
-#### source
-
-[src/components/Pagination](https://github.com/DonggunLim/react-ui-kit/tree/main/src/components/Pagination)
-
-#### children
-
-- index
-- Navigator
-- PageButtons
-
-### Example
-
-```jsx
-<Pagination
-  totalPages={30}
-  currentPage={currentPage}
-  onPageChange={handlePageChange}
+<Modal.Root
+  onCloseModal={handleCloseModal}
+  onOpenModal={handleOpenModal}
+  open={isOpen}
 >
-  <Pagination.PageButtons />
-  <Pagination.Navigator />
-</Pagination>
+  <Modal.Backdrop />
+  <Modal.Trigger>
+    <button>custom trigger button</button>
+  </Modal.Trigger>
+  <Modal.Content>
+    <Modal.Close>
+      <button>custom close button</button>
+    </Modal.Close>
+    Modal Content 내부 입니다.
+  </Modal.Content>
+</Modal.Root>
 ```
 
-### Popover
+### Select
 
 #### source
 
-[src/components/Popover](https://github.com/DonggunLim/react-ui-kit/tree/main/src/components/Popover)
+[src/components/Select](https://github.com/DonggunLim/react-ui-kit/tree/main/src/components/Select)
 
 #### children
 
-- index
-- PopoverContent
-- PopoverTrigger
+- Root
+- Trigger
+- Content
+- Item
 
 ### Example
 
 ```jsx
-<Popover position="bottom-center">
-  <Popover.Trigger>Open</Popover.Trigger>
-  <Popover.Content>Place content for the popover here.</Popover.Content>
-</Popover>
-```
-
-### Tabs
-
-#### source
-
-[src/components/Tabs](https://github.com/DonggunLim/react-ui-kit/tree/main/src/components/Tabs)
-
-#### children
-
-- index
-- TabMenu
-- TabMenuList
-- TabPannel
-
-### Example
-
-```jsx
-<Tabs onChangeTab={handleChangeTab} defaultTabIndex={currentTabIndex}>
-  <Tabs.MenuList>
-    <Tabs.Menu index={1}>Menu1</Tabs.Menu>
-    <Tabs.Menu index={2}>Menu2</Tabs.Menu>
-    <Tabs.Menu index={3}>Menu3</Tabs.Menu>
-  </Tabs.MenuList>
-  <Tabs.Pannel index={1}>Content1</Tabs.Pannel>
-  <Tabs.Pannel index={2}>Content2</Tabs.Pannel>
-  <Tabs.Pannel index={3}>Content3</Tabs.Pannel>
-</Tabs>
-```
-
-### Progress
-
-#### source
-
-[src/components/Progress](https://github.com/DonggunLim/react-ui-kit/tree/main/src/components/Progress)
-
-#### children
-
-- index
-
-### Example
-
-```jsx
-<Progress stop={stop} />
+<Select.Root onChangeValue={handleChangeValue} value={selectedValue}>
+  <Select.Trigger>Select Item</Select.Trigger>
+  <Select.Content>
+    <Select.Item value={"1"}>One</Select.Item>
+    <Select.Item value={"2"}>Two</Select.Item>
+    <Select.Item value={"3"}>Three</Select.Item>
+  </Select.Content>
+</Select.Root>
 ```

@@ -317,11 +317,11 @@
 <br/>
 <br/>
 
-### Modal
+### Select
 
 #### source
 
-[src/components/Modal](https://github.com/DonggunLim/react-ui-kit/tree/main/src/components/Modal)
+[src/components/Select](https://github.com/DonggunLim/react-ui-kit/tree/main/src/components/Select)
 
 #### children
 

@@ -1,23 +1,33 @@
-import { useState } from "react";
+import { ToastAction, useToast } from "@ui/Toast";
 import "./App.css";
-import Select from "./components/Select";
 
 function App() {
-  const [selectedValue, setSelectedValue] = useState<string>("1");
-  const handleChangeValue = (selectedValue: string) => {
-    setSelectedValue(selectedValue);
-  };
-
+  const { toast } = useToast();
   return (
     <div id="app">
-      <Select.Root onChangeValue={handleChangeValue} value={selectedValue}>
-        <Select.Trigger>Select Item</Select.Trigger>
-        <Select.Content>
-          <Select.Item value={"1"}>One</Select.Item>
-          <Select.Item value={"2"}>Two</Select.Item>
-          <Select.Item value={"3"}>Three</Select.Item>
-        </Select.Content>
-      </Select.Root>
+      <button
+        onClick={() => {
+          toast({
+            title: "This is toast title",
+            description: "this is toast description",
+            duration: 3000,
+            actionElem: <ToastAction>close button</ToastAction>,
+          });
+        }}
+      >
+        Click Toast
+      </button>
+      <button
+        onClick={() => {
+          toast({
+            title: "This is toast title2",
+            description: "this is toast description2",
+            duration: 3000,
+          });
+        }}
+      >
+        Click Toast2
+      </button>
     </div>
   );
 }

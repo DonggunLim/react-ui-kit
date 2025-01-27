@@ -16,6 +16,11 @@ export interface ToastProps {
   description: string;
   duration?: number;
   actionElem?: ReactNode;
-  position?: "top-right" | "bottom-right" | "bottom-left" | "top-left";
+  position?: ToastPositions;
 }
 export type ToastItem = ToastProps;
+export type ToastPositions =
+  | "top-right"
+  | "bottom-right"
+  | "bottom-left"
+  | "top-left";

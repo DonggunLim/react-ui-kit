@@ -342,3 +342,47 @@
   </Select.Content>
 </Select.Root>
 ```
+
+<br/>
+<br/>
+
+---
+
+<br/>
+<br/>
+
+### Toast
+
+#### source
+
+[src/components/Toast](https://github.com/DonggunLim/react-ui-kit/tree/main/src/components/Toast)
+
+#### children
+
+- ToastAction
+- ToastContainer
+- ToastDescription
+- ToastTitle
+
+#### hooks
+
+- useToast
+
+### Example
+
+```jsx
+const toast = useToast();
+
+<button
+  onClick={() => {
+    toast({
+      title: "This is toast title",
+      description: "this is toast description",
+      duration: 3000,
+      actionElem: <ToastAction>close button</ToastAction>,
+    });
+  }}
+>
+  Click Toast
+</button>;
+```

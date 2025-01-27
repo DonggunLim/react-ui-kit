@@ -23,6 +23,7 @@ function App() {
             title: "This is toast title2",
             description: "this is toast description2",
             duration: 3000,
+            position: "bottom-right",
           });
         }}
       >

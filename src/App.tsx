@@ -16,10 +16,10 @@ import Select from "@ui/Select";
 function App() {
   const { toast } = useToast();
   const [currentPage, setCurrentPage] = useState(1);
-  const [currentTabIndex, setCurrentTabIndex] = useState(0);
-  const [stop, setStop] = useState(false);
-  const [isOpen, setisOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState("");
+  const [currentTabIndex, _setCurrentTabIndex] = useState(0);
+  const [stop, _setStop] = useState(false);
+  const [isOpen, _setisOpen] = useState(false);
+  const [selectedValue, _setSelectedValue] = useState("");
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };

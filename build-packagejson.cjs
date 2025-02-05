@@ -9,14 +9,23 @@ const getPackageJsonData = () => {
   const { react: reactVersion, "react-dom": reactDomVersion } =
     packageJson.dependencies;
   return {
-    version: "0.0.12",
+    version: "0.0.14",
     name: packageName,
     main: "./index.cjs",
     module: "./index.js",
-    types: "./types/index.d.ts",
+    types: "./index.d.ts",
     peerDependencies: {
       react: reactVersion,
       "react-dom": reactDomVersion,
+    },
+    repository: {
+      type: "git",
+      url: "https://github.com/DonggunLim/react-ui-kit",
+    },
+    author: {
+      name: "Donggun Lim",
+      email: "Ldonggun6766@gmail.com",
+      url: "https://github.com/DonggunLim",
     },
   };
 };

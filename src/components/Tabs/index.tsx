@@ -5,6 +5,7 @@ import {
   FC,
   PropsWithChildren,
   ReactElement,
+  useContext,
   useMemo,
   useState,
 } from "react";
@@ -27,8 +28,14 @@ interface TabContextProps {
   selectedIndex: number;
   handleClickMenu: (index: number) => void;
 }
-
-export const TabContext = createContext<TabContextProps | null>(null);
+const TabContext = createContext<TabContextProps | null>(null);
+export const useTabContext = () => {
+  const context = useContext(TabContext);
+  if (!context) {
+    throw new Error("useTabContext should be used within TabContext.Provdier");
+  }
+  return context;
+};
 
 const Tabs: FC<TabsProps> & TabsComponundProps = ({
   children,

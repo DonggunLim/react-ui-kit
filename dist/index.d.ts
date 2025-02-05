@@ -40,6 +40,9 @@ declare interface AccordionTitleProps extends PropsWithChildren {
 declare interface BackdropProps extends ModalBaseProps {
 }
 
+declare interface BaseProps extends PropsWithChildren {
+}
+
 export declare const Breadcrumb: FC<BreadcrumbProps> & BreadcrumbCompundProps;
 
 declare interface BreadcrumbCompundProps {
@@ -224,8 +227,8 @@ declare interface RootProps extends SelectBaseProps {
 }
 
 declare interface RootProps_2 extends ModalBaseProps {
-    onCloseModal: () => void;
-    onOpenModal: () => void;
+    onCloseModal?: () => void;
+    onOpenModal?: () => void;
     open: boolean;
 }
 
@@ -282,7 +285,27 @@ declare interface TabsProps extends PropsWithChildren {
     className?: string;
 }
 
+export declare const ToastAction: ({ children, onClick, }: ToastActionProps) => JSX_2.Element;
+
+declare interface ToastActionProps extends BaseProps {
+    onClick?: () => void;
+}
+
+declare type ToastPositions = "top-right" | "bottom-right" | "bottom-left" | "top-left";
+
+declare interface ToastProps {
+    title: string;
+    description: string;
+    duration?: number;
+    actionElem?: ReactNode;
+    position?: ToastPositions;
+}
+
 declare interface TriggerProps extends ModalBaseProps {
 }
+
+export declare const useToast: () => {
+    toast: ({ duration, ...rest }: ToastProps) => void;
+};
 
 export { }

@@ -1,5 +1,5 @@
-import { FC, PropsWithChildren, useContext, useMemo } from "react";
-import { TabContext } from ".";
+import { FC, PropsWithChildren, useMemo } from "react";
+import { useTabContext } from ".";
 import { tabsMenuBaseCls } from "@consts/className";
 
 interface TabMenuProps extends PropsWithChildren {
@@ -7,7 +7,7 @@ interface TabMenuProps extends PropsWithChildren {
 }
 
 const TabMenu: FC<TabMenuProps> = ({ children, index }) => {
-  const { selectedIndex, handleClickMenu } = useContext(TabContext);
+  const { selectedIndex, handleClickMenu } = useTabContext();
 
   const isActive = useMemo(
     () => selectedIndex === index,

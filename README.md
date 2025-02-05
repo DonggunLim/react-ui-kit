@@ -389,4 +389,6 @@ const toast = useToast();
 >
   Click Toast
 </button>;
+
+<Toast.Container />;
 ```

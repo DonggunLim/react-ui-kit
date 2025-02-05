@@ -1,4 +1,11 @@
-import { createContext, FC, PropsWithChildren, useMemo, useState } from "react";
+import {
+  createContext,
+  FC,
+  PropsWithChildren,
+  useContext,
+  useMemo,
+  useState,
+} from "react";
 import AccordionTitle from "./AccordionTitle";
 import AccordionContent from "./AccordionContent";
 import AccordionButton from "./AccordionButton";
@@ -17,10 +24,19 @@ interface AccordionContextProps {
   isOpen: boolean;
   handleClickButton: () => void;
 }
-export const AccordionContext = createContext<AccordionContextProps>({
-  isOpen: false,
-  handleClickButton: () => {},
-});
+
+const AccordionContext = createContext<AccordionContextProps | null>(null);
+
+export const useAccordionContext = () => {
+  const context = useContext(AccordionContext);
+  if (!context) {
+    throw new Error(
+      "Accordion Context should be used within AccordionContext.Provider"
+    );
+  }
+  return context;
+};
+
 const Accordion: FC<AccordionProps> & AccordionCompoundProps = ({
   children,
   className,

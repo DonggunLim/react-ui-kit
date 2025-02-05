@@ -1,6 +1,6 @@
-import { FC, PropsWithChildren, useContext, useMemo } from "react";
-import { AccordionContext } from ".";
+import { FC, PropsWithChildren, useMemo } from "react";
 import { AccordionContentCls } from "@consts/className";
+import { useAccordionContext } from ".";
 
 interface AccordionContentProps extends PropsWithChildren {
   className?: string;
@@ -17,7 +17,7 @@ const AccordionContent: FC<AccordionContentProps> = ({
         : `${AccordionContentCls}`,
     [className]
   );
-  const { isOpen } = useContext(AccordionContext);
+  const { isOpen } = useAccordionContext();
   return isOpen && <div className={accordionContentCls}>{children}</div>;
 };
 

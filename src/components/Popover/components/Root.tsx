@@ -5,17 +5,9 @@ import {
   useImperativeHandle,
 } from "react";
 import { PopoverContextProps, PopoverProps, PopoverRefProps } from "../types";
-import { DEFAULT_TRIGGER_RECT } from "../consts";
 import { usePopover } from "../hooks/usePopover";
 
-const PopoverContext = createContext<PopoverContextProps>({
-  isPopoverOpen: false,
-  triggerRect: DEFAULT_TRIGGER_RECT,
-  contentPosition: "bottom-center",
-  handlePopoverVisible: () => {},
-  handleTriggerRect: () => {},
-  triggerRef: { current: null },
-});
+const PopoverContext = createContext<PopoverContextProps | null>(null);
 
 export const usePopoverContext = () => {
   const context = useContext(PopoverContext);

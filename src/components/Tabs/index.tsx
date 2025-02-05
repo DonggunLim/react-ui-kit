@@ -28,10 +28,7 @@ interface TabContextProps {
   handleClickMenu: (index: number) => void;
 }
 
-export const TabContext = createContext<TabContextProps>({
-  selectedIndex: 0,
-  handleClickMenu: () => {},
-});
+export const TabContext = createContext<TabContextProps | null>(null);
 
 const Tabs: FC<TabsProps> & TabsComponundProps = ({
   children,

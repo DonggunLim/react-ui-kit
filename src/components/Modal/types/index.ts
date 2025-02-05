@@ -5,8 +5,8 @@ interface ModalBaseProps extends PropsWithChildren {
 }
 /* Modal component */
 export interface RootProps extends ModalBaseProps {
-  onCloseModal: () => void;
-  onOpenModal: () => void;
+  onCloseModal?: () => void;
+  onOpenModal?: () => void;
   open: boolean;
 }
 

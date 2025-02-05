@@ -267,7 +267,7 @@
 ### Example
 
 ```jsx
-<DatePicker date={new Date()} onChange={handleChangeDate} />
+<DatePicker date={new Date()} onChangeDate={handleChangeDate} />
 ```
 
 <br/>
@@ -295,18 +295,22 @@
 ### Example
 
 ```jsx
-<Modal.Root onCloseModal={handleCloseModal} open={isOpen}>
+<Modal.Root
+  onCloseModal={handleCloseModal}
+  open={isOpen}
+  onOpenModal={handleOpenModal}
+>
   <Modal.Backdrop />
   <Modal.Trigger>
-      <div>Custom-Trigger</div>
+    <div>Custom-Trigger</div>
   </Modal.Trigger>
   <Modal.Content>
     <Modal.Close>
-          <div> custom-modal-close</div>
-    <Modal.Close/>
+      <div> custom-modal-close</div>
+    </Modal.Close>
     <div>Modal Content</div>
   </Modal.Content>
-</Modal>
+</Modal.Root>
 ```
 
 <br/>

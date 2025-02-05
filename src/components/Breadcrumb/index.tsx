@@ -33,12 +33,7 @@ interface BreadcrumbContextProps {
   isBreadcrumbOverflow: boolean;
   width?: number;
 }
-const BreadcrumbContext = createContext<BreadcrumbContextProps>({
-  handleItemWidth: () => {},
-  totalBreadcrumbCount: 0,
-  isBreadcrumbOverflow: false,
-  width: DEFAULT_BREADCRUMB_WIDTH,
-});
+const BreadcrumbContext = createContext<BreadcrumbContextProps | null>(null);
 
 export const useBreadcrumbContext = () => {
   const context = useContext(BreadcrumbContext);

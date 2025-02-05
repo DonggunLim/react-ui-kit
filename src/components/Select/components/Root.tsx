@@ -3,10 +3,7 @@ import { RootProps, SelectContextProps, SelectItem } from "../types";
 import { PopoverRefProps } from "../../Popover/types";
 import Popover from "@ui/Popover";
 
-const SelectContext = createContext<SelectContextProps>({
-  handleClickItem: () => {},
-  selectedItem: { value: "", label: "" },
-});
+const SelectContext = createContext<SelectContextProps | null>(null);
 
 export const useSelectContext = () => {
   const context = useContext(SelectContext);

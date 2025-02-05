@@ -1,5 +1,5 @@
-import { FC, useContext } from "react";
-import { CarouselContext } from ".";
+import { FC } from "react";
+import { useCarouselContext } from ".";
 import {
   CarouselNavigatorBaseCls,
   CarouselNavigatorNextButtonBaseCls,
@@ -11,7 +11,7 @@ interface CarouselNavigatorProps {
 }
 
 const CarouselNavigator: FC<CarouselNavigatorProps> = ({ children }) => {
-  const { handleClickNavigator } = useContext(CarouselContext);
+  const { handleClickNavigator } = useCarouselContext();
   return children ? (
     children(handleClickNavigator)
   ) : (

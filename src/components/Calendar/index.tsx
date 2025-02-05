@@ -27,11 +27,7 @@ interface CalendarCompoundProps {
   Body: typeof CalendarBody;
 }
 
-const CalendarContext = createContext<CalendarContextProps>({
-  currentDate: new Date(),
-  handleClickNavigate: () => {},
-  handleClickDate: () => {},
-});
+const CalendarContext = createContext<CalendarContextProps | null>(null);
 
 export const useCalendarContext = () => {
   const context = useContext(CalendarContext);

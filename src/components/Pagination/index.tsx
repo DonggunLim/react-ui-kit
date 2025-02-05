@@ -29,12 +29,7 @@ interface PaginationContextProps {
   handleClickButton: (page: number) => void;
 }
 
-const PaginationContext = createContext<PaginationContextProps>({
-  currentGroupPages: [],
-  currentPage: 0,
-  totalPages: 0,
-  handleClickButton: () => {},
-});
+const PaginationContext = createContext<PaginationContextProps | null>(null);
 
 export const usePaginationContext = () => {
   const context = useContext(PaginationContext);

@@ -1,9 +1,9 @@
-import { FC, useContext } from "react";
-import { CarouselContext } from ".";
+import { FC } from "react";
 import {
   CarouselIndicatorBaseCls,
   CarouselIndicatorButtonsCls,
 } from "@consts/className";
+import { useCarouselContext } from ".";
 
 interface CarouselIndicatorProps {
   children?: (
@@ -13,7 +13,7 @@ interface CarouselIndicatorProps {
 }
 const CarouselIndicator: FC<CarouselIndicatorProps> = ({ children }) => {
   const { currentIndex, totalItemCount, handleClickIndicator } =
-    useContext(CarouselContext);
+    useCarouselContext();
   const indicatorItem = Array.from(
     { length: totalItemCount },
     (_, index) => index + 1
@@ -28,7 +28,7 @@ const CarouselIndicator: FC<CarouselIndicatorProps> = ({ children }) => {
       }).map((key) => (
         <li
           className={CarouselIndicatorButtonsCls}
-          data-isActive={currentIndex === key}
+          data-isactive={currentIndex === key}
           onClick={() => handleClickIndicator(key)}
           key={`indicator-item-${key}`}
         ></li>

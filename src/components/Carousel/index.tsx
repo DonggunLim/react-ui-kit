@@ -5,6 +5,7 @@ import {
   FC,
   PropsWithChildren,
   ReactElement,
+  useContext,
   useMemo,
 } from "react";
 import useCarousel from "./hooks/useCarousel";
@@ -30,12 +31,17 @@ interface CarouselContextProps {
   handleClickIndicator: (index: number) => void;
   totalItemCount: number;
 }
-export const CarouselContext = createContext<CarouselContextProps>({
-  currentIndex: 0,
-  handleClickNavigator: () => {},
-  handleClickIndicator: () => {},
-  totalItemCount: 0,
-});
+export const CarouselContext = createContext<CarouselContextProps | null>(null);
+
+export const useCarouselContext = () => {
+  const context = useContext(CarouselContext);
+  if (!context) {
+    throw new Error(
+      `useCarouselContext should be used within CarouselProvider`
+    );
+  }
+  return context;
+};
 
 const Carousel: FC<CarouselProps> & CarouselCompundProps = ({
   children,

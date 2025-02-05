@@ -1,10 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import { ModalContextProps, RootProps } from "../types";
 
-const ModalContext = createContext<ModalContextProps>({
-  isOpen: false,
-  handleTriggerModal: () => {},
-});
+const ModalContext = createContext<ModalContextProps | null>(null);
 
 export const useModalContext = () => {
   const context = useContext(ModalContext);

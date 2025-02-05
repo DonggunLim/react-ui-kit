@@ -23,7 +23,7 @@ const PopoverTrigger: FC<PopoverTriggerProps> = ({ children, className }) => {
     [className]
   );
 
-  if (typeof children === "function" && triggerRef.current) {
+  if (typeof children === "function") {
     return children(triggerRef as never, hanldeClickButton);
   }
 

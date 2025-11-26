@@ -3,13 +3,14 @@ import { PopoverTriggerProps } from "../types";
 import { usePopoverContext } from "./Root";
 import { PopoverTriggerCls } from "@consts/className";
 
-const PopoverTrigger: FC<PopoverTriggerProps> = ({ children, className }) => {
+const PopoverTrigger: FC<PopoverTriggerProps> = ({ children, className, onClick, ...restProps }) => {
   const { handlePopoverVisible, handleTriggerRect, triggerRef } =
     usePopoverContext();
 
-  const hanldeClickButton: MouseEventHandler = (e) => {
+  const hanldeClickButton: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.stopPropagation();
     handlePopoverVisible();
+    onClick?.(e);
   };
 
   useEffect(() => {
@@ -33,6 +34,7 @@ const PopoverTrigger: FC<PopoverTriggerProps> = ({ children, className }) => {
         className={triggerCls}
         onClick={hanldeClickButton}
         ref={triggerRef as never}
+        {...restProps}
       >
         {(children as ReactNode) || "trigger"}
       </button>

@@ -1,4 +1,4 @@
-import { PropsWithChildren, ReactNode, RefObject } from "react";
+import { ButtonHTMLAttributes, PropsWithChildren, ReactNode, RefObject } from "react";
 
 export type PositionType = "bottom-left" | "bottom-center" | "bottom-right";
 export type TriggerRect = Omit<DOMRect, "toJSON">;
@@ -16,15 +16,13 @@ export interface PopoverContentProps extends PropsWithChildren {
 }
 
 /* Popover Trigger Props */
-export interface PopoverTriggerProps {
-  className?: string;
+export interface PopoverTriggerProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children'> {
   children?:
     | ((
         ref: RefObject<HTMLElement>,
-        cb: (e: React.MouseEvent) => void
+        cb: (e: React.MouseEvent<HTMLButtonElement>) => void
       ) => ReactNode)
     | ReactNode;
-  title?: string;
 }
 
 /* Popover Context */

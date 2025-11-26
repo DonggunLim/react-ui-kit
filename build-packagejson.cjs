@@ -17,7 +17,7 @@ const getPackageJsonData = () => {
     },
     repository: {
       type: "git",
-      url: "https://github.com/DonggunLim/react-ui-kit",
+      url: "git+https://github.com/DonggunLim/react-ui-kit.git",
     },
     author: {
       name: "Donggun Lim",

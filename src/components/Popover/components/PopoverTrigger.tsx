@@ -7,10 +7,10 @@ const PopoverTrigger: FC<PopoverTriggerProps> = ({ children, className, onClick,
   const { handlePopoverVisible, handleTriggerRect, triggerRef } =
     usePopoverContext();
 
-  const hanldeClickButton: MouseEventHandler<HTMLButtonElement> = (e) => {
+  const hanldeClickButton: MouseEventHandler<HTMLElement> = (e) => {
     e.stopPropagation();
     handlePopoverVisible();
-    onClick?.(e);
+    onClick?.(e as React.MouseEvent<HTMLButtonElement>);
   };
 
   useEffect(() => {

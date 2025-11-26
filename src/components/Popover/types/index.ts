@@ -20,7 +20,7 @@ export interface PopoverTriggerProps extends Omit<ButtonHTMLAttributes<HTMLButto
   children?:
     | ((
         ref: RefObject<HTMLElement>,
-        cb: (e: React.MouseEvent<HTMLButtonElement>) => void
+        cb: (e: React.MouseEvent<HTMLElement>) => void
       ) => ReactNode)
     | ReactNode;
 }

@@ -6,7 +6,7 @@ const packageName = "@imdonggun/react-ui-kit";
 
 const getPackageJsonData = () => {
   return {
-    version: "0.0.15",
+    version: "0.0.16",
     name: packageName,
     main: "./index.cjs",
     module: "./index.js",
@@ -32,11 +32,23 @@ const makePackageJson = () => {
     const buildPackageJsonData = getPackageJsonData();
     fs.writeFileSync(
       path.resolve(buildDir, "package.json"),
-      JSON.stringify(buildPackageJsonData)
+      JSON.stringify(buildPackageJsonData, null, 2)
     );
   } catch (err) {
     console.log(err);
   }
 };
 
+const copyReadme = () => {
+  try {
+    const readmePath = path.resolve(__dirname, "README.md");
+    const destPath = path.resolve(buildDir, "README.md");
+    fs.copyFileSync(readmePath, destPath);
+    console.log("README.md copied to dist/");
+  } catch (err) {
+    console.log("Failed to copy README.md:", err);
+  }
+};
+
 makePackageJson();
+copyReadme();

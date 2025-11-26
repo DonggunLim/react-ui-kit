@@ -6,7 +6,7 @@ const packageName = "@imdonggun/react-ui-kit";
 
 const getPackageJsonData = () => {
   return {
-    version: "0.0.16",
+    version: "0.0.17",
     name: packageName,
     main: "./index.cjs",
     module: "./index.js",
